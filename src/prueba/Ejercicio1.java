@@ -10,19 +10,36 @@ de cada una. (1,5 ptos)
 */
 var sc = new Scanner(System.in);
 
-System.out.println("Introduza la frase que quiera: ");
-String frase = sc.nextLine();
-int i;
- int numeroPalabras = 1;
-for (i=0; i<frase.length(); i++) {
-	if(Character.isSpaceChar(frase.charAt(i)) == true) {
-		numeroPalabras++;
-		
-	}
-	
-}	
-System.out.println("Su frase tiene un numero de " + numeroPalabras + " palabras");
 
+
+        // Leer la frase del teclado
+        System.out.print("Ingrese una frase: ");
+        String frase = sc.nextLine();
+
+        // Separar las palabras de la frase
+        String[] palabras = frase.split("\\s+");
+
+        // Inicializar variables para calcular la palabra más larga y la más corta
+        String palabraMasLarga = "";
+        String palabraMasCorta = palabras[0]; // Inicializar con la primera palabra
+
+        for (String palabra : palabras) {
+            // Comparar longitud para la palabra más larga
+            if (palabra.length() > palabraMasLarga.length()) {
+                palabraMasLarga = palabra;
+            }
+            // Comparar longitud para la palabra más corta
+            if (palabra.length() < palabraMasCorta.length()) {
+                palabraMasCorta = palabra;
+            }
+        }
+
+        // Mostrar los resultados
+        System.out.println("Número de palabras: " + palabras.length);
+        System.out.println("Palabra más larga: \"" + palabraMasLarga + "\" con " + palabraMasLarga.length() + " caracteres.");
+        System.out.println("Palabra más corta: \"" + palabraMasCorta + "\" con " + palabraMasCorta.length() + " caracteres.");
+
+        sc.close();
 
 	}
 	
